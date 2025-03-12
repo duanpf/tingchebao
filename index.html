@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>停车宝 - 避免违章罚款的最佳选择</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 自定义样式 */
+        .gradient-border:focus {
+            border-color: transparent;
+            box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px #93c5fd;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .subscription-card {
+            transition: all 0.3s ease;
+        }
+
+        .subscription-card:hover {
+            transform: scale(1.03);
+        }
+
+        /* 自定义动画 */
+        @keyframes pulse-blue {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+            }
+        }
+
+        .animate-pulse-blue {
+            animation: pulse-blue 2s infinite;
+        }
+
+        /* 渐变背景 */
+        .bg-gradient-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+
+        /* 数据标签 */
+        .stat-label {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-car-side text-blue-500 text-2xl"></i>
+                <span class="font-bold text-xl text-blue-600">停车宝</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-blue-500 transition">功能介绍</a>
+                <a href="#how-to-use" class="text-gray-600 hover:text-blue-500 transition">使用方法</a>
+                <a href="#faq" class="text-gray-600 hover:text-blue-500 transition">常见问题</a>
+                <a href="#pricing" class="text-gray-600 hover:text-blue-500 transition">订阅服务</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-500 hover:text-blue-500">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 px-4 py-2 shadow-lg rounded-b-lg transition-all duration-300 ease-in-out">
+            <a href="#features" class="block py-3 text-gray-600 hover:text-blue-500 border-b border-gray-100 flex items-center">
+                <i class="fas fa-star-of-life text-blue-400 mr-3 text-xs"></i>
+                <span>功能介绍</span>
+            </a>
+            <a href="#how-to-use" class="block py-3 text-gray-600 hover:text-blue-500 border-b border-gray-100 flex items-center">
+                <i class="fas fa-star-of-life text-blue-400 mr-3 text-xs"></i>
+                <span>使用方法</span>
+            </a>
+            <a href="#faq" class="block py-3 text-gray-600 hover:text-blue-500 border-b border-gray-100 flex items-center">
+                <i class="fas fa-star-of-life text-blue-400 mr-3 text-xs"></i>
+                <span>常见问题</span>
+            </a>
+            <a href="#pricing" class="block py-3 text-gray-600 hover:text-blue-500 flex items-center">
+                <i class="fas fa-star-of-life text-blue-400 mr-3 text-xs"></i>
+                <span>订阅服务</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="bg-gradient-blue text-white py-16 relative overflow-hidden">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 relative z-10">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">15分钟内处理违停<br>轻松省下200元罚款</h1>
+                <p class="mb-8 text-lg">智能监测+即时提醒，让您的停车体验更轻松自在</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#pricing" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition animate-pulse-blue text-center">限时特惠 立即订阅</a>
+                    <a href="#how-to-use" class="bg-transparent border-2 border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-blue-600 transition text-center">了解更多</a>
+                </div>
+                <!-- 信任背书 -->
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <div class="stat-label">
+                        <div class="text-blue-600 font-bold text-2xl">10万+</div>
+                        <div class="text-gray-600 text-sm">活跃用户</div>
+                    </div>
+                    <div class="stat-label">
+                        <div class="text-blue-600 font-bold text-2xl">98%</div>
+                        <div class="text-gray-600 text-sm">用户好评</div>
+                    </div>
+                    <div class="stat-label">
+                        <div class="text-blue-600 font-bold text-2xl">¥1000万+</div>
+                        <div class="text-gray-600 text-sm">为用户节省</div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center relative">
+                <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="智能停车场景" class="rounded-lg shadow-xl max-w-full h-auto relative z-10">
+                <!-- 场景标签 -->
+                <div class="absolute top-4 right-4 stat-label z-20">
+                    <div class="text-blue-600 font-bold">15分钟</div>
+                    <div class="text-gray-600 text-sm">处理时限</div>
+                </div>
+                <div class="absolute bottom-4 left-4 stat-label z-20">
+                    <div class="text-blue-600 font-bold">200元</div>
+                    <div class="text-gray-600 text-sm">避免罚款</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特点介绍 -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">产品特点</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">即时提醒</h3>
+                    <p class="text-gray-600">收到交警短信后，立即通过Bark推送通知，确保您不会错过处理时间</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">自动化处理</h3>
+                    <p class="text-gray-600">利用苹果快捷指令，全自动监测和处理交警短信，无需手动操作</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                    <div class="text-blue-500 text-3xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">避免罚款</h3>
+                    <p class="text-gray-600">及时处理违章警告，有效避免200元罚款，为您节省不必要的支出</p>
+                </div>
+            </div>
+            
+            <!-- 痛点与解决方案对比 -->
+            <div class="mt-16 max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+                <h3 class="text-3xl font-bold mb-8 text-center text-gray-800">停车痛点与解决方案</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- 痛点场景 -->
+                    <div class="bg-rose-50 p-6 rounded-xl relative overflow-hidden transition-all duration-300 hover:shadow-md">
+                        <div class="absolute top-0 right-0 w-20 h-20 -mt-10 -mr-10 bg-rose-100 rounded-full opacity-50"></div>
+                        <h4 class="text-2xl font-semibold text-rose-700 mb-6 relative">未使用停车宝</h4>
+                        <div class="flex justify-center mb-6 relative">
+                            <img src="images/car_worried_fine.svg" alt="收到罚单的担忧汽车" class="h-64 transform hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <ul class="space-y-3 relative">
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                <span>错过交警短信通知</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                <span>无法及时处理停车提醒</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                <span>面临200元罚款风险</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                <span>停车体验焦虑不安</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 解决方案 -->
+                    <div class="bg-emerald-50 p-6 rounded-xl relative overflow-hidden transition-all duration-300 hover:shadow-md">
+                        <div class="absolute top-0 right-0 w-20 h-20 -mt-10 -mr-10 bg-emerald-100 rounded-full opacity-50"></div>
+                        <h4 class="text-2xl font-semibold text-emerald-700 mb-6 relative">使用停车宝</h4>
+                        <div class="flex justify-center mb-6 relative">
+                            <img src="images/car_happy_solution.svg" alt="无忧停车的快乐汽车" class="h-64 transform hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <ul class="space-y-3 relative">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>即时接收交警短信提醒</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>自动化处理停车提醒</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>有效避免罚款支出</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>享受无忧停车体验</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用方法 -->
+    <section id="how-to-use" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">使用方法</h2>
+            
+            <!-- 操作视频 -->
+            <div class="mb-16 bg-white p-6 rounded-xl shadow-md max-w-4xl mx-auto">
+                <h3 class="text-2xl font-semibold mb-6 text-center">操作视频教程</h3>
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg relative">
+                    <div class="bg-gray-200 w-full h-64 md:h-96 flex flex-col items-center justify-center rounded-lg relative group cursor-pointer">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+                        <i class="fas fa-play-circle text-6xl text-blue-500 mb-2 relative z-10 transform group-hover:scale-110 transition-transform duration-300"></i>
+                        <p class="text-gray-700 font-medium relative z-10">点击观看完整视频教程</p>
+                        <p class="text-gray-500 text-sm mt-1 relative z-10">了解如何设置Bark推送和快捷指令</p>
+                    </div>
+                </div>
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                <span class="font-bold text-blue-500">1</span>
+                            </div>
+                            <h5 class="font-medium">Bark设置</h5>
+                        </div>
+                        <p class="text-sm text-gray-600">视频展示如何下载并设置Bark应用，获取推送地址</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                <span class="font-bold text-blue-500">2</span>
+                            </div>
+                            <h5 class="font-medium">快捷指令配置</h5>
+                        </div>
+                        <p class="text-sm text-gray-600">详细演示如何添加和配置停车宝快捷指令</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                <span class="font-bold text-blue-500">3</span>
+                            </div>
+                            <h5 class="font-medium">自动化设置</h5>
+                        </div>
+                        <p class="text-sm text-gray-600">展示如何设置自动化，实现短信自动监测和提醒</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 步骤说明 -->
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-2xl font-semibold mb-8 text-center">设置步骤</h3>
+                <div class="space-y-6">
+                    <div class="flex flex-col md:flex-row bg-white p-6 rounded-xl shadow-md">
+                        <div class="md:w-1/6 flex justify-center mb-4 md:mb-0">
+                            <div class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                        </div>
+                        <div class="md:w-5/6">
+                            <h4 class="text-xl font-semibold mb-2">订阅产品服务</h4>
+                            <p class="text-gray-600 mb-3">选择适合您的订阅方案：9.9元/月、19.9元/季度或29.9元/年</p>
+                            <a href="#pricing" class="text-blue-500 hover:text-blue-700 font-medium">前往订阅 <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row bg-white p-6 rounded-xl shadow-md">
+                        <div class="md:w-1/6 flex justify-center mb-4 md:mb-0">
+                            <div class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">2</div>
+                        </div>
+                        <div class="md:w-5/6">
+                            <h4 class="text-xl font-semibold mb-2">输入Bark推送地址</h4>
+                            <p class="text-gray-600 mb-3">在设置页面输入您的Bark推送地址，格式如：https://api.day.app/qDV43WKfpHdWmnaGYcjDjC/自定义内容</p>
+                            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4 rounded-lg">
+                                <div class="flex items-start">
+                                    <div class="text-blue-500 mr-3"><i class="fas fa-info-circle text-xl"></i></div>
+                                    <div>
+                                        <p class="font-medium text-blue-700">如何获取Bark推送地址？</p>
+                                        <ol class="mt-2 text-sm text-blue-700 space-y-1 list-decimal list-inside">
+                                            <li>在App Store搜索并下载<strong>Bark</strong>应用</li>
+                                            <li>打开Bark应用后，点击右上角<strong>+</strong>按钮创建新推送</li>
+                                            <li>点击底部<strong>复制推送地址</strong>按钮</li>
+                                            <li>将复制的地址粘贴到下方输入框</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 bg-gray-50 p-4 rounded-lg relative">
+                                <input type="text" placeholder="输入您的Bark推送地址" class="w-full p-3 border border-gray-300 rounded-lg gradient-border focus:outline-none">
+                                <div class="absolute right-8 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-blue-500 cursor-pointer transition">
+                                    <i class="fas fa-paste text-lg" title="粘贴"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row bg-white p-6 rounded-xl shadow-md">
+                        <div class="md:w-1/6 flex justify-center mb-4 md:mb-0">
+                            <div class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">3</div>
+                        </div>
+                        <div class="md:w-5/6">
+                            <h4 class="text-xl font-semibold mb-2">生成专属停车宝快捷指令</h4>
+                            <p class="text-gray-600 mb-3">系统将根据您的Bark地址自动生成专属的快捷指令</p>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-4 rounded-lg">
+                                <div class="flex items-start">
+                                    <div class="text-yellow-500 mr-3"><i class="fas fa-lightbulb text-xl"></i></div>
+                                    <div>
+                                        <p class="font-medium text-yellow-700">快捷指令是什么？</p>
+                                        <p class="mt-1 text-sm text-yellow-700">快捷指令是苹果设备上的自动化工具，可以帮助您自动监测和处理交警短信，无需手动操作。我们的专属快捷指令会自动配置所有必要的设置，您只需点击添加即可。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3 mt-2">
+                                <button class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition flex items-center justify-center">
+                                    <i class="fas fa-magic mr-2"></i> 生成快捷指令
+                                </button>
+                                <button class="bg-gray-100 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-200 transition flex items-center justify-center">
+                                    <i class="fas fa-question-circle mr-2"></i> 查看使用教程
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row bg-white p-6 rounded-xl shadow-md">
+                        <div class="md:w-1/6 flex justify-center mb-4 md:mb-0">
+                            <div class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">4</div>
+                        </div>
+                        <div class="md:w-5/6">
+                            <h4 class="text-xl font-semibold mb-2">使用停车宝快捷指令</h4>
+                            <p class="text-gray-600 mb-3">点击生成的快捷指令链接，将其添加到您的iPhone中</p>
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-lg">
+                                <div class="flex items-start">
+                                    <div class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></div>
+                                    <div>
+                                        <p class="font-medium text-green-700">添加快捷指令的步骤：</p>
+                                        <ol class="mt-2 text-sm text-green-700 space-y-1 list-decimal list-inside">
+                                            <li>点击生成的快捷指令链接</li>
+                                            <li>系统将自动打开快捷指令App</li>
+                                            <li>点击<strong>添加快捷指令</strong>按钮</li>
+                                            <li>完成后，快捷指令将自动监测交警短信并发送提醒</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center">
+                                <div class="bg-gray-200 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-mobile-alt text-2xl text-gray-500"></i>
+                                </div>
+                                <p class="text-sm text-gray-500">快捷指令将在您的iPhone上自动运行，无需手动干预</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row bg-white p-6 rounded-xl shadow-md">
+                        <div class="md:w-1/6 flex justify-center mb-4 md:mb-0">
+                            <div class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">5</div>
+                        </div>
+                        <div class="md:w-5/6">
+                            <h4 class="text-xl font-semibold mb-2">打开苹果快捷指令App</h4>
+                            <p class="text-gray-600">在您的iPhone上打开快捷指令应用</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row bg-white p-6 rounded-xl shadow-md">
+                        <div class="md:w-1/6 flex justify-center mb-4 md:mb-0">
+                            <div class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">6</div>
+                        </div>
+                        <div class="md:w-5/6">
+                            <h4 class="text-xl font-semibold mb-2">设置自动化</h4>
+                            <p class="text-gray-600 mb-3">在快捷指令中设置自动化，当收到交警短信时自动触发推送通知</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                    <div class="flex items-center mb-2">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                            <i class="fas fa-cog text-blue-500"></i>
+                                        </div>
+                                        <h5 class="font-medium">自动化设置步骤</h5>
+                                    </div>
+                                    <ol class="text-sm text-gray-600 space-y-2 list-decimal list-inside">
+                                        <li>打开快捷指令App，点击底部的<strong>自动化</strong>标签</li>
+                                        <li>点击右上角的<strong>+</strong>按钮，选择<strong>创建个人自动化</strong></li>
+                                        <li>选择<strong>信息</strong>作为触发条件</li>
+                                        <li>设置当收到包含特定关键词（如"停车"）的短信时触发</li>
+                                        <li>添加<strong>运行快捷指令</strong>操作，选择我们的停车宝快捷指令</li>
+                                    </ol>
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                    <div class="flex items-center mb-2">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                            <i class="fas fa-lightbulb text-blue-500"></i>
+                                        </div>
+                                        <h5 class="font-medium">自动化优势</h5>
+                                    </div>
+                                    <ul class="text-sm text-gray-600 space-y-2">
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                            <span>全自动监测交警短信，无需手动检查</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                            <span>即时推送通知，确保不错过处理时间</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                            <span>智能识别相关短信，过滤无关信息</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                            <span>后台运行，不影响手机正常使用</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">常见问题</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">以下是用户最常咨询的问题，如有其他疑问，请随时联系我们的客服团队</p>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- 手风琴式FAQ -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold">什么是停车宝？</h3>
+                        <i class="fas fa-chevron-down text-blue-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="mt-3">
+                        <p class="text-gray-600">停车宝是一款专为城市道路停车用户设计的提醒服务，通过监测交警发送的短信通知，及时提醒用户处理，避免因未及时处理而产生的罚款。</p>
+                        <div class="mt-3 bg-blue-50 p-3 rounded-lg flex items-start">
+                            <i class="fas fa-lightbulb text-yellow-500 mt-1 mr-2"></i>
+                            <p class="text-sm text-blue-700">每年因未及时处理停车提醒而产生的罚款高达数亿元，我们的服务可以有效帮助您避免这些不必要的支出。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold">如何获取Bark推送地址？</h3>
+                        <i class="fas fa-chevron-down text-blue-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="mt-3">
+                        <p class="text-gray-600 mb-3">您需要在App Store下载Bark应用，打开后会自动生成您的专属推送地址。复制该地址并粘贴到我们的设置页面即可。</p>
+                        <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                            <div class="bg-gray-50 p-2 rounded-lg">
+                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-1">
+                                    <i class="fas fa-download text-blue-500"></i>
+                                </div>
+                                <p>下载Bark应用</p>
+                            </div>
+                            <div class="bg-gray-50 p-2 rounded-lg">
+                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-1">
+                                    <i class="fas fa-copy text-blue-500"></i>
+                                </div>
+                                <p>复制推送地址</p>
+                            </div>
+                            <div class="bg-gray-50 p-2 rounded-lg">
+                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-1">
+                                    <i class="fas fa-paste text-blue-500"></i>
+                                </div>
+                                <p>粘贴到设置页</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold">停车宝支持哪些城市？</h3>
+                        <i class="fas fa-chevron-down text-blue-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="mt-3">
+                        <p class="text-gray-600 mb-3">目前支持全国大部分主要城市的交警短信提醒服务，包括北京、上海、广州、深圳等一线城市及众多二三线城市。</p>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">北京</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">上海</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">广州</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">深圳</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">杭州</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">南京</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">武汉</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">成都</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">重庆</span>
+                            <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">西安</span>
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs">更多城市...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold">订阅后多久可以使用？</h3>
+                        <i class="fas fa-chevron-down text-blue-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="mt-3">
+                        <p class="text-gray-600">订阅成功后即可立即使用，设置完成Bark推送地址和快捷指令后，系统将自动开始监测您的短信。整个设置过程通常只需3-5分钟。</p>
+                        <div class="mt-3 flex items-center bg-green-50 p-2 rounded-lg">
+                            <i class="fas fa-clock text-green-500 mr-2"></i>
+                            <p class="text-sm text-green-700">立即订阅，今天就开始保护您的钱包！</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <div class="flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold">如何取消订阅？</h3>
+                        <i class="fas fa-chevron-down text-blue-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="mt-3">
+                        <p class="text-gray-600 mb-3">您可以随时在个人中心-订阅管理中取消订阅。取消后，当前订阅周期结束时服务将自动停止。</p>
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <p class="text-sm text-gray-600">我们相信产品的价值会让您满意，如果您对服务有任何疑问或建议，请先联系我们的客服团队，我们将竭诚为您服务。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 更多问题 -->
+            <div class="text-center mt-10">
+                <p class="text-gray-600 mb-4">还有其他问题？</p>
+                <a href="mailto:support@parkingvip.com" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
+                    <i class="fas fa-envelope mr-2"></i> 联系客服
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订阅服务 -->
+    <section id="pricing" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">订阅服务</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">选择适合您的订阅方案，立即开启停车无忧体验</p>
+            
+            <!-- 价值说明 -->
+            <div class="max-w-3xl mx-auto mb-10 bg-blue-50 p-5 rounded-xl">
+                <div class="flex items-start">
+                    <div class="text-blue-500 mr-4 mt-1"><i class="fas fa-coins text-3xl"></i></div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-blue-700 mb-2">订阅停车宝的价值</h4>
+                        <p class="text-blue-700 mb-3">一次违章罚款高达200元，而我们的服务最低只需9.9元/月，为您节省高达95%的潜在罚款成本！</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <div class="text-2xl font-bold text-red-500">200元</div>
+                                <div class="text-sm text-gray-600">违章罚款</div>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <div class="text-2xl font-bold text-green-500">9.9元</div>
+                                <div class="text-sm text-gray-600">月度订阅</div>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <div class="text-2xl font-bold text-blue-500">95%</div>
+                                <div class="text-sm text-gray-600">节省成本</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- 月度订阅 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden subscription-card">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">月度订阅</h3>
+                        <div class="text-3xl font-bold text-blue-600 mb-4">¥9.9<span class="text-lg text-gray-500 font-normal">/月</span></div>
+                        <div class="text-sm text-gray-500 mb-4 bg-gray-50 p-2 rounded-lg text-center">适合短期尝试用户</div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>基础提醒服务</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>自动化处理</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>7×24小时监测</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition flex items-center justify-center">
+                            <i class="fas fa-credit-card mr-2"></i> 立即订阅
+                        </button>
+                        <p class="text-xs text-center text-gray-500 mt-2">随时可取消</p>
+                    </div>
+                </div>
+                
+                <!-- 季度订阅 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden subscription-card relative transform scale-105">
+                    <div class="bg-blue-500 text-white text-center py-2 font-semibold">
+                        <i class="fas fa-star mr-1"></i> 热门选择 <i class="fas fa-star ml-1"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">季度订阅</h3>
+                        <div class="text-3xl font-bold text-blue-600 mb-4">¥19.9<span class="text-lg text-gray-500 font-normal">/季</span></div>
+                        <div class="text-sm text-green-600 mb-4 bg-green-50 p-2 rounded-lg text-center font-medium">相当于每月仅需6.6元 <span class="text-xs">(节省33%)</span></div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>基础提醒服务</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>自动化处理</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>7×24小时监测</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>优先客服支持</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition animate-pulse-blue flex items-center justify-center">
+                            <i class="fas fa-crown mr-2"></i> 立即订阅
+                        </button>
+                        <p class="text-xs text-center text-gray-500 mt-2">随时可取消</p>
+                    </div>
+                </div>
+                
+                <!-- 年度订阅 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden subscription-card">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">年度订阅</h3>
+                        <div class="text-3xl font-bold text-blue-600 mb-4">¥29.9<span class="text-lg text-gray-500 font-normal">/年</span></div>
+                        <div class="text-sm text-green-600 mb-4 bg-green-50 p-2 rounded-lg text-center font-medium">相当于每月仅需2.5元 <span class="text-xs">(节省75%)</span></div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>基础提醒服务</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>自动化处理</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>7×24小时监测</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>优先客服支持</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>专属VIP标识</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition flex items-center justify-center">
+                            <i class="fas fa-gem mr-2"></i> 立即订阅
+                        </button>
+                        <p class="text-xs text-center text-gray-500 mt-2">最具性价比</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-car-side text-blue-400 text-2xl"></i>
+                        <span class="font-bold text-xl text-white">停车宝</span>
+                    </div>
+                    <p class="text-gray-400">避免违章罚款的最佳选择</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">功能介绍</a></li>
+                        <li><a href="#how-to-use" class="text-gray-400 hover:text-white transition">使用方法</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition">常见问题</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition">订阅服务</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系我们</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-2"></i>
+                            <a href="mailto:support@parkingvip.com" class="text-gray-400 hover:text-white transition">support@parkingvip.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">400-888-8888</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">关注我们</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-weixin text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-weibo text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-qq text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 停车宝. 保留所有权利</p>
+                <div class="mt-2 space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition">隐私政策</a>
+                    <span>|</span>
+                    <a href="#" class="text-gray-400 hover:text-white transition">服务条款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 关闭移动端菜单（当点击菜单项时）
+        const mobileMenuItems = mobileMenu.querySelectorAll('a');
+        mobileMenuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // FAQ手风琴效果
+        const faqItems = document.querySelectorAll('#faq .rounded-xl');
+        faqItems.forEach(item => {
+            const header = item.querySelector('.flex.justify-between');
+            const content = item.querySelector('.mt-3');
+            const icon = item.querySelector('.fa-chevron-down');
+            
+            // 默认隐藏内容，只显示第一个
+            if(item !== faqItems[0]) {
+                content.style.display = 'none';
+            } else {
+                icon.classList.add('transform', 'rotate-180');
+            }
+            
+            header.addEventListener('click', function() {
+                // 切换内容显示/隐藏
+                if(content.style.display === 'none') {
+                    // 先隐藏所有其他内容
+                    faqItems.forEach(otherItem => {
+                        const otherContent = otherItem.querySelector('.mt-3');
+                        const otherIcon = otherItem.querySelector('.fa-chevron-down');
+                        if(otherItem !== item) {
+                            otherContent.style.display = 'none';
+                            otherIcon.classList.remove('transform', 'rotate-180');
+                        }
+                    });
+                    
+                    // 显示当前内容
+                    content.style.display = 'block';
+                    icon.classList.add('transform', 'rotate-180');
+                }
+            });
+        });
+        
+        // 粘贴Bark地址功能
+        const pasteIcon = document.querySelector('.fa-paste');
+        if(pasteIcon) {
+            pasteIcon.addEventListener('click', async function() {
+                try {
+                    const text = await navigator.clipboard.readText();
+                    const input = this.closest('div').querySelector('input');
+                    input.value = text;
+                } catch (err) {
+                    console.error('无法访问剪贴板:', err);
+                    alert('无法访问剪贴板，请手动粘贴');
+                }
+            });
+        }
+    </script>

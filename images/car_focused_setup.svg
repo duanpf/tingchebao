@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- 汽车主体 -->
+  <path d="M90,300 C90,240 120,200 256,200 C392,200 422,240 422,300 L422,330 C422,350 392,370 256,370 C120,370 90,350 90,330 Z" fill="#fbbf24" stroke="#374151" stroke-width="3"/>
+  
+  <!-- 车顶 -->
+  <path d="M150,200 C170,150 342,150 362,200" fill="none" stroke="#374151" stroke-width="3"/>
+  
+  <!-- 车轮 -->
+  <circle cx="150" cy="330" r="30" fill="#374151" stroke="#000" stroke-width="2"/>
+  <circle cx="150" cy="330" r="15" fill="#fbbf24" stroke="#000" stroke-width="1"/>
+  <circle cx="362" cy="330" r="30" fill="#374151" stroke="#000" stroke-width="2"/>
+  <circle cx="362" cy="330" r="15" fill="#fbbf24" stroke="#000" stroke-width="1"/>
+  
+  <!-- 车窗 -->
+  <path d="M170,200 C190,170 322,170 342,200" fill="#f3f4f6" stroke="#374151" stroke-width="2"/>
+  
+  <!-- 车灯 -->
+  <ellipse cx="120" cy="260" rx="15" ry="10" fill="#fef3c7" stroke="#000" stroke-width="1"/>
+  <ellipse cx="392" cy="260" rx="15" ry="10" fill="#fef3c7" stroke="#000" stroke-width="1"/>
+  
+  <!-- 专注表情 - 眼睛 -->
+  <ellipse cx="200" cy="250" rx="12" ry="10" fill="#fff" stroke="#374151" stroke-width="2"/>
+  <ellipse cx="200" cy="250" rx="6" ry="5" fill="#374151"/>
+  <ellipse cx="312" cy="250" rx="12" ry="10" fill="#fff" stroke="#374151" stroke-width="2"/>
+  <ellipse cx="312" cy="250" rx="6" ry="5" fill="#374151"/>
+  
+  <!-- 专注表情 - 眉毛 -->
+  <path d="M185,230 L215,225" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+  <path d="M297,225 L327,230" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 专注表情 - 嘴巴 -->
+  <path d="M240,290 L272,290" fill="none" stroke="#374151" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- 手机和Bark应用 -->
+  <rect x="220" y="150" width="30" height="50" rx="3" fill="#374151" stroke="#000" stroke-width="1"/>
+  <rect x="222" y="155" width="26" height="40" rx="1" fill="#f59e0b"/>
+  <text x="235" y="180" font-family="Arial" font-size="8" font-weight="bold" text-anchor="middle" fill="#fff">Bark</text>
+  
+  <!-- 对话框 -->
+  <path d="M350,180 C390,180 390,140 350,140 L280,140 L270,160 L260,140 L220,140 C180,140 180,180 220,180 Z" fill="#fff" stroke="#374151" stroke-width="2"/>
+  <text x="285" y="165" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="#374151">认真设置中...</text>
+</svg>

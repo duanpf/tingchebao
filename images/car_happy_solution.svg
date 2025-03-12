@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 130 332 240" width="512" height="512">
+  <!-- 汽车主体 -->
+  <path d="M90,300 C90,240 120,200 256,200 C392,200 422,240 422,300 L422,330 C422,350 392,370 256,370 C120,370 90,350 90,330 Z" fill="#fbbf24" stroke="#374151" stroke-width="3"/>
+  
+  <!-- 车顶 -->
+  <path d="M150,200 C170,150 342,150 362,200" fill="none" stroke="#374151" stroke-width="3"/>
+  
+  <!-- 车轮 -->
+  <circle cx="150" cy="330" r="30" fill="#374151" stroke="#000" stroke-width="2"/>
+  <circle cx="150" cy="330" r="15" fill="#fbbf24" stroke="#000" stroke-width="1"/>
+  <circle cx="362" cy="330" r="30" fill="#374151" stroke="#000" stroke-width="2"/>
+  <circle cx="362" cy="330" r="15" fill="#fbbf24" stroke="#000" stroke-width="1"/>
+  
+  <!-- 车窗 -->
+  <path d="M170,200 C190,170 322,170 342,200" fill="#f3f4f6" stroke="#374151" stroke-width="2"/>
+  
+  <!-- 车灯 -->
+  <ellipse cx="120" cy="260" rx="15" ry="10" fill="#fef3c7" stroke="#000" stroke-width="1"/>
+  <ellipse cx="392" cy="260" rx="15" ry="10" fill="#fef3c7" stroke="#000" stroke-width="1"/>
+  
+  <!-- 开心表情 - 眼睛 -->
+  <path d="M190,245 C195,235 205,235 210,245" fill="none" stroke="#374151" stroke-width="3"/>
+  <path d="M302,245 C307,235 317,235 322,245" fill="none" stroke="#374151" stroke-width="3"/>
+  
+  <!-- 开心表情 - 眉毛 -->
+  <path d="M185,225 L215,225" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+  <path d="M297,225 L327,225" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 开心表情 - 嘴巴 -->
+  <path d="M220,290 C256,320 292,290 292,290" fill="none" stroke="#374151" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- VIP标识 -->
+  <rect x="236" y="160" width="40" height="20" rx="5" fill="#f59e0b" stroke="#374151" stroke-width="1"/>
+  <text x="256" y="175" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">VIP</text>
+  
+  <!-- 星星装饰 -->
+  <path d="M200,150 L205,160 L215,162 L207,170 L209,180 L200,175 L191,180 L193,170 L185,162 L195,160 Z" fill="#f59e0b" stroke="#374151" stroke-width="1"/>
+  <path d="M300,150 L305,160 L315,162 L307,170 L309,180 L300,175 L291,180 L293,170 L285,162 L295,160 Z" fill="#f59e0b" stroke="#374151" stroke-width="1"/>
+  
+  <!-- 对话框 -->
+  <path d="M350,180 C390,180 390,140 350,140 L280,140 L270,160 L260,140 L220,140 C180,140 180,180 220,180 Z" fill="#fff" stroke="#374151" stroke-width="2"/>
+  <text x="285" y="165" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#059669">无忧停车，安心出行！</text>
+</svg>
